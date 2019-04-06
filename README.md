@@ -162,3 +162,34 @@ Confirm your web site is running
 $ curl localhost
 ```
 ### Make your recipe more manageable
+Create a cookbook
+```
+$ ~/chef-repo
+$ mkdir cookbooks
+```
+```
+$ chef generate cookbook cookbooks/learn_chef_apache2
+```
+Install tree 
+```
+$ sudo apt-get tree
+```
+Run the cookbook
+```
+$ sudo chef-client --local-mode --runlist 'recipe[learn_chef_apache2]'
+```
+What is test and repair
+> Chef applies changes only when they are necessary.
+What is a run list
+> A run-list specifies which recipes to run and the order in which to run them.
+What does a cookbook do
+> It includes recipes and external information and makes them easier to manage.
+
+
+
+
+
+
+
+
+
