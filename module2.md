@@ -10,7 +10,7 @@ Create a working directory
 mkdir ~/learn-chef
 cd ~/learn-chef
 ```
-Sign up for Hosted Chef
+## Sign up for Hosted Chef
 
 What is Knife?
 > knife is the command-line tool that provides an interface between your workstation and the Chef server
