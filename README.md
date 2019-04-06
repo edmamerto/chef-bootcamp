@@ -11,7 +11,7 @@ After completing this module, you should be able to:
 ### Chef Workflow
 Draw the Chef workflow
 
-chef_workflow.png
+![chef_workflow.png](chef_workflow.png)
 
 What is a node?
 > A node is any computer that is managed by a Chef server.
