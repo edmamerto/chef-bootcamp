@@ -16,5 +16,7 @@ $ knife bootstrap 192.168.145.131 --ssh-user vagrant --sudo --identity-file ~/.s
 
 Confirm result
 ```
-$ knife bootstrap 192.168.145.131 --ssh-user vagrant --sudo --identity-file ~/.ssh/private_key --node-name node1-ubuntu --run-list 'recipe[learn_chef_apache2]'
+$ knife node list
+$ knife node show <node-name>
 ```
+
