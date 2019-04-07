@@ -1,6 +1,7 @@
 # The Chef Bootcamp
 > This was taken from learn chef rally and just modified for simplicity
-##Learn the Chef basics 
+
+## Learn the Chef basics 
 
 After completing this module, you should be able to:
 
