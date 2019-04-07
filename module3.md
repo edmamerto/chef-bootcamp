@@ -8,3 +8,12 @@ Clone apache cookbook here
 $ git clone https://github.com/learn-chef/learn_chef_apache2.git
 ```
 
+Upload your cookbook to Chef Server
+```
+$ knife cookbook upload learn_chef_apache2
+```
+
+Check cookbook list in the Chef Server
+```
+$ knife cookbook list
+```
