@@ -19,4 +19,6 @@ Confirm result
 $ knife node list
 $ knife node show <node-name>
 ```
-
+```
+$ curl <host address>
+```
