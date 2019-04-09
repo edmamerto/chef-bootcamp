@@ -64,8 +64,7 @@ $ sudo apt-get install vim --yes
 
 ### Configure a resource
 What is a resource?
-> 	
-A Chef resource describes one part of the system, such as a file, a template, or a package. Describe desired state of the system.
+>  A Chef resource describes one part of the system, such as a file, a template, or a package. Describe desired state of the system.
 
 What is a recipe?
 >  A Chef recipe is a file that groups related resources, such as everything needed to configure a web server, database server, or a load balancer.
