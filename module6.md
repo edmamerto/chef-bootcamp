@@ -1,33 +1,39 @@
-## Resolve a failed chef-client run
+## Run chef-client periodically
 
-Assign an owner to the homepage
+> you may also want to run chef-client periodically. One reason is to help ensure that your servers are free from configuration drift.
+
+Ways to run a chef-client periodically
+> On Linux nodes, you might use a daemon, cron job, or service.
+> On Linux, the chef-client cookbook sets up chef-client to run as a service
+
+Obtaining `chef-client` cookbook
+> to obtain the cookbook you can use knife supermarket command. However, the chef-client cookbook has dependencies on other cookbooks
+> HOWEVER knife supermarket does not resolve these dependencies for you.
+
+What is Berkshelf
+> is a tool that helps you resolve cookbook dependencies. Berkshelf can retrieve the cookbooks that your cookbook depends on and can upload your cookbooks to your Chef server. Berkshelf comes with Chef Workstation. Befkshelf comes with Chef Workstation
+
+in your working dir create Berkfsfile
 ```
-#
-# Cookbook Name:: learn_chef_apache2
-# Recipe:: default
-#
-# Copyright (c) 2016 The Authors, All Rights Reserved.
-apt_update 'Update the apt cache daily' do
-  frequency 86_400
-  action :periodic
-end
-
-package 'apache2'
-
-service 'apache2' do
-  supports status: true
-  action [:enable, :start]
-end
-
-template '/var/www/html/index.html' do
-  source 'index.html.erb'
-  mode '0644'
-  owner 'web_admin'
-  group 'web_admin'
-end
+$ touch Berksfile
+```
+```
+source 'https://supermarket.chef.io'
+cookbook 'chef-client'
 ```
 
-group `web_admin`
+download the chef-client cookbook and its dependencies.
+```
+$ berks install
+```
+Berkshelf downloads the chef-client cookbook and its dependent cookbooks to the ~/.berkshelf/cookbooks directory.
+```
+$ ls ~/.berkshelf/cookbooks
+```
+upload the chef-client cookbook and its dependencies to Chef server.
+```
+berks upload
+```
+## Create a role
 
-user `web_admin` do
-    group `webadmin
+> Now that the chef-client cookbook is on your Chef server, you need to update your node's run-list to use it. You also need to specify how often to run chef-client. In this part, you'll use a role to define both.
