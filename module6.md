@@ -37,3 +37,68 @@ berks upload
 ## Create a role
 
 > Now that the chef-client cookbook is on your Chef server, you need to update your node's run-list to use it. You also need to specify how often to run chef-client. In this part, you'll use a role to define both.
+
+Create a web role
+```
+mkdir ~/learn-chef/roles
+
+```
+
+Add `~/learn-chef/roles/web.json`
+```
+{
+   "name": "web",
+   "description": "Web server role.",
+   "json_class": "Chef::Role",
+   "default_attributes": {
+     "chef_client": {
+       "interval": 300,
+       "splay": 60
+     }
+   },
+   "override_attributes": {
+   },
+   "chef_type": "role",
+   "run_list": ["recipe[chef-client::default]",
+                "recipe[chef-client::delete_validation]",
+                "recipe[learn_chef_apache2::default]"
+   ],
+   "env_run_lists": {
+   }
+}
+```
+
+Upload role to the Chef server
+```
+$ knife role from file roles/web.json
+```
+
+Verify your roles were uploaded
+```
+$ knife role list
+```
+
+View role's details
+```
+$ knife role show web 
+```
+
+Set yur node's run list
+```
+$ knife node run_list set node1-ubuntu "role[web]"
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
