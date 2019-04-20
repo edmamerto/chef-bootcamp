@@ -1,5 +1,5 @@
 # The Chef Bootcamp
-> This was taken from learn chef rally and just modified for simplicity
+> This was taken from learn chef rally and just rewritten for simplicity.
 
 ## Learn the Chef basics 
 

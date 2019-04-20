@@ -21,6 +21,10 @@ Upload your cookbook to the Che server
 ```
 $ knife cookbook upload learn_chef_apache2
 ```
+bootstrap
+```
+$ knife bootstrap ADDRESS --ssh-user USER --sudo --identity-file IDENTITY_FILE --node-name node1-ubuntu --run-list 'recipe[learn_chef_apache2]'
+```
 
 Run the cookbook on your node
 ```

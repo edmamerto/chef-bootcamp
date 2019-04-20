@@ -10,8 +10,12 @@ Bootstrap your node using key based authentication
 $ knife bootstrap ADDRESS --ssh-user USER --sudo --identity-file IDENTITY_FILE --node-name node1-ubuntu --run-list 'recipe[learn_chef_apache2]'
 ```
 example
+> - FQDN => public ip 
+> - USER => ubuntu or root
+> - PEM_FILE => yourpem.pem
+> - NODE_NAME => whatever
 ```
-$ knife bootstrap 192.168.145.131 --ssh-user vagrant --sudo --identity-file ~/.ssh/private_key --node-name node1-ubuntu --run-list 'recipe[learn_chef_apache2]'
+$ knife bootstrap FQDN --ssh-user USER --sudo --identity-file ~/.ssh/PEM_FILE --node-name NODE_NAME --run-list 'recipe[learn_chef_apache2]'
 ```
 
 Confirm result
